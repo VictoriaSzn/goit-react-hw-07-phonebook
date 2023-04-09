@@ -1,5 +1,4 @@
 
-//https://63f794d4e8a73b486afb5808.mockapi.io/contacts
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const contactsApi = createApi({
