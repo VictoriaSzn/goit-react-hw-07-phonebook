@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "../Form.module.css";
 import { useSelector } from "react-redux";
-import {getContactsQuery, delContactMutation} from "../../redux/ContactSlice";
+import {useGetContactsQuery, useDeleteContactMutation} from "../../redux/ContactSlice";
 import{selectFilter} from "../../redux/selector"
 
 export const ContactList = () => {
-  const { data } = getContactsQuery();
-  const [delContact] = delContactMutation();
+  const { data } = useGetContactsQuery();
+  const [delContact] = useDeleteContactMutation();
   const filter = useSelector(selectFilter);
 
 
@@ -25,9 +25,9 @@ export const ContactList = () => {
   });
   return(
     <ul className={styles.contactList}>
-      {filterContacts.map(({ id, name, number }) => (
+      {filterContacts.map(({ id, name, phone }) => (
         <li key={id} className={styles.item}>
-          {name + ": " + number}
+          {name + ": " + phone}
           {
             <button
               className={styles.btn}

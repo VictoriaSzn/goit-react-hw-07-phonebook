@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import styles from "../Form.module.css";
-import { addContactMutation } from "../../redux/ContactSlice";
-import { getContactsQuery } from '../../redux/ContactSlice';
+import { useGetContactsQuery, useAddContactMutation} from "../../redux/ContactSlice";
+//import { getContactsQuery } from '../../redux/ContactSlice';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   
-  const [addContact] = addContactMutation();
-  const {data:contacts} = getContactsQuery();
+  const [addContact] = useAddContactMutation();
+  const {data:contacts} = useGetContactsQuery();
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
